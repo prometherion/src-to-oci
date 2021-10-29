@@ -1,0 +1,18 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: simpleapp
+  namespace: default
+spec:
+  deploy:
+  - kapp: {}
+  fetch:
+  - git:
+      ref: origin/test
+      url: https://github.com/prometherion/src-to-oci
+  serviceAccountName: kapp-app-simpleapp
+  template:
+  - ytt:
+      paths:
+      - config
+  - kbld: {}
