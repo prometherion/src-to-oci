@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - name: simple-app
-        image: docker.io/dkalinin/k8s-simple-app
+        image: registry.default.svc.cluster.local:5000/dkalinin/k8s-simple-app:0.0.1
         env:
         - name: HELLO_MSG
           value: #@ data.values.hello_msg
