@@ -3,7 +3,7 @@
 apiVersion: kbld.k14s.io/v1alpha1
 kind: Config
 sources:
-- image: registry.default:5000/dkalinin/k8s-simple-app
+- image: simple-app
   path: .
   kubectlBuildKit: {}
 
@@ -12,5 +12,5 @@ sources:
 apiVersion: kbld.k14s.io/v1alpha1
 kind: Config
 destinations:
-- image: registry.default:5000/dkalinin/k8s-simple-app
+- image: simple-app
   newImage: #@ data.values.push_images_repo
