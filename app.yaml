@@ -1,0 +1,28 @@
+apiVersion: kappctrl.k14s.io/v1alpha1
+kind: App
+metadata:
+  name: simple-app
+  namespace: default
+spec:
+  serviceAccountName: default-ns-sa
+  fetch:
+  - git:
+      url: https://github.com/maxgio92/src-to-oci.git
+      ref: origin/test
+        #      subPath: config
+  template:
+  - ytt:
+      paths:
+      - ./config/build.yml
+      - ./config/config.yml
+      - ./config/values.yml
+    #      paths:
+    #      - build.yml
+    #      - config.yml
+    #      - values.yml
+    #  - kbld: {}
+  - kbld:
+      paths:
+        - "-"
+  deploy:
+  - kapp: {}
