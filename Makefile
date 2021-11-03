@@ -7,7 +7,7 @@ CLUSTER_REGISTRY := registry:5000
 IMAGE ?= $(CLUSTER_REGISTRY)/$(APP):$(VERSION)
 
 .PHONY: reqs
-reqs: reqs/cluster reqs/buildkit-for-kubectl reqs/cluster-registry
+reqs: reqs/remote
 
 .PHONY: build
 build: reqs
